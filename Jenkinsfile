@@ -4,7 +4,8 @@ pipeline {
     environment {
         REPO_URL = 'https://github.com/raotv40/newGitTest.git'
         BRANCH = 'master'
-        SCRIPT_NAME = 'script_test.py'
+        SCRIPT_NAME = 'script_test1.py'
+        PYTHON_PATH = 'C:\\Users\\dell\\AppData\\Local\\Programs\\Python\\Python312\\python.exe'
     }
     
     stages {
@@ -22,7 +23,7 @@ pipeline {
                     if (isUnix()) {
                         sh 'python --version'
                     } else {
-                        bat 'python --version'
+                        bat "\"${PYTHON_PATH}\" --version"
                     }
                 }
             }
@@ -36,7 +37,7 @@ pipeline {
                         if (isUnix()) {
                             sh "python ${SCRIPT_NAME}"
                         } else {
-                            bat "python ${SCRIPT_NAME}"
+                            bat "\"${PYTHON_PATH}\" ${SCRIPT_NAME}"
                         }
                     } catch (Exception e) {
                         error("Failed to execute Python script: ${e.message}")
