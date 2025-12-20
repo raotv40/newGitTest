@@ -10,7 +10,7 @@ pipeline {
 
         BRANCH     = 'master'            // change to 'main' if your repo uses that 
 
-        SCRIPT_NAME = 'script_test50.py' 
+        SCRIPT_NAME = 'langchaindemo/script_test50.py' 
 
         // Keep double backslashes for Windows paths 
 
